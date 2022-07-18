@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D5A84E"
+    tools:context=".TempActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="40%"
+        app:layout_marginTopPercent="5%"
+        app:layout_marginStartPercent="10%"
+        app:layout_widthPercent="80%"
+
+        >
+        <com.anychart.AnyChartView
+            android:id="@+id/any_chart_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="40%"
+        app:layout_marginStartPercent="10%"
+        app:layout_marginTopPercent="50%"
+        app:layout_widthPercent="40%">
+
+        <com.anychart.AnyChartView
+            android:id="@+id/any_chart_view1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ToggleButton
+        android:id="@+id/heater_togglebtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="15%"
+        app:layout_marginStartPercent="60%"
+        app:layout_marginTopPercent="50%"
+        app:layout_widthPercent="30%"
+        android:background="@drawable/my_btn_toggle"
+        />
+
+    <TextView
+        android:id="@+id/txtMessage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="15%"
+        app:layout_marginStartPercent="60%"
+        app:layout_marginTopPercent="75%"
+        app:layout_widthPercent="30%"
+        android:background="#00BCD4"
+        android:text="Too Cold"
+        android:gravity="center"
+        />
+
+</androidx.percentlayout.widget.PercentRelativeLayout>

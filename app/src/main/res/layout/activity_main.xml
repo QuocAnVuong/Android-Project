@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/humidButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/humidBtn"
+        android:textColor="#ffffff"
+        android:background="@color/gray"
+        app:layout_heightPercent="10%"
+        app:layout_marginStartPercent="10%"
+        app:layout_marginTopPercent="15%"
+        app:layout_widthPercent="80%" />
+
+    <Button
+        android:id="@+id/tempButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/gray"
+        android:textColor="#ffffff"
+        android:text="@string/tempBtn"
+        app:layout_heightPercent="10%"
+        app:layout_marginStartPercent="10%"
+        app:layout_marginTopPercent="26%"
+        app:layout_widthPercent="80%" />
+
+    <ToggleButton
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/lightButton"
+        android:background="@color/gray"
+        android:textColor="#ffffff"
+        android:text="@string/turn_on_light"
+        app:layout_heightPercent="5%"
+        app:layout_marginStartPercent="10%"
+        app:layout_marginTopPercent="9%"
+        app:layout_widthPercent="80%"
+        />
+
+
+</androidx.percentlayout.widget.PercentRelativeLayout>

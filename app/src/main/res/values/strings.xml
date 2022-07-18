@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Intelligent Farmer</string>
+    <string name="tempBtn">CHECK TEMPERATURE</string>
+    <string name="humidBtn">CHECK HUMIDITY</string>
+    <string name="nutriBtn">CHECK NUTRIENT</string>
+    <string name="turn_on_light">TURN ON LIGHT</string>
+</resources>
