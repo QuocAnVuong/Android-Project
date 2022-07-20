@@ -24,10 +24,16 @@ public class MQTTHelper {
     private String clientId = "VuongQuocAn";
 
 
-    final String arrayTopics[] = {"VTrung/feeds/temperature","VTrung/feeds/humidity","VTrung/feeds/message"};
+    final String arrayTopics[] = {"VTrung/feeds/temperature",
+            "VTrung/feeds/humidity",
+            "VTrung/feeds/message",
+            "VTrung/feeds/temperature-message",
+            "VTrung/feeds/water",
+            "VTrung/feeds/heater",
+            "VTrung/feeds/fan"};
 
     final String username = "VTrung";
-    final String password = "aio_AdEX71Y3FwGyl3NiUFh6C3UUDfzw";
+    final String password = "abc";
 
 
 

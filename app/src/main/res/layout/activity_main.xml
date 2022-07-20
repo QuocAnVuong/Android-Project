@@ -4,45 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#05103A"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Welcome, Nhan!"
+        android:textColor="#fff"
+        android:textSize="25dp"
+        app:layout_marginStartPercent="5%"
+        app:layout_marginTopPercent="2%"
+        app:layout_heightPercent="40%"
+        app:layout_widthPercent="70%"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Let's manage your farm"
+        android:textColor="#77809E80"
+        android:textSize="20dp"
+        app:layout_marginStartPercent="5%"
+        app:layout_marginTopPercent="6%"
+        app:layout_heightPercent="40%"
+        app:layout_widthPercent="70%"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/pp"
+        app:layout_heightPercent="7%"
+        app:layout_marginStartPercent="81%"
+        app:layout_marginTopPercent="2%"
+        app:layout_widthPercent="14%" />
 
     <Button
         android:id="@+id/humidButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/humidBtn"
-        android:textColor="#ffffff"
-        android:background="@color/gray"
-        app:layout_heightPercent="10%"
-        app:layout_marginStartPercent="10%"
-        app:layout_marginTopPercent="15%"
-        app:layout_widthPercent="80%" />
+        android:textColor="#fff"
+        android:drawableTop="@drawable/humid"
+        android:paddingTop="40dp"
+        android:textSize="23sp"
+        android:background="@drawable/custom_button"
+        app:layout_marginStartPercent="5%"
+        app:layout_marginTopPercent="50%"
+        app:layout_heightPercent="35%"
+        app:layout_widthPercent="43%"/>
 
     <Button
         android:id="@+id/tempButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/gray"
-        android:textColor="#ffffff"
         android:text="@string/tempBtn"
-        app:layout_heightPercent="10%"
-        app:layout_marginStartPercent="10%"
-        app:layout_marginTopPercent="26%"
-        app:layout_widthPercent="80%" />
+        android:textColor="#fff"
+        android:drawableTop="@drawable/temperature"
+        android:paddingTop="40dp"
+        android:textSize="23sp"
+        android:background="@drawable/custom_button"
+        app:layout_marginStartPercent="52%"
+        app:layout_marginTopPercent="50%"
+        app:layout_heightPercent="35%"
+        app:layout_widthPercent="43%"/>
 
-    <ToggleButton
+    <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="@+id/lightButton"
-        android:background="@color/gray"
-        android:textColor="#ffffff"
-        android:text="@string/turn_on_light"
-        app:layout_heightPercent="5%"
-        app:layout_marginStartPercent="10%"
-        app:layout_marginTopPercent="9%"
-        app:layout_widthPercent="80%"
-        />
+        android:src="@drawable/plus"
+        app:layout_heightPercent="7%"
+        app:layout_marginStartPercent="43%"
+        app:layout_marginTopPercent="90%"
+        app:layout_widthPercent="14%" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/custom_button"
+        app:layout_heightPercent="30%"
+        app:layout_marginStartPercent="5%"
+        app:layout_marginTopPercent="15%"
+        app:layout_widthPercent="90%"/>
+
+    <!--Message-->
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/sun"
+        app:layout_heightPercent="15%"
+        app:layout_marginStartPercent="8%"
+        app:layout_marginTopPercent="28%"
+        app:layout_widthPercent="40%" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/cloud"
+        app:layout_heightPercent="12%"
+        app:layout_marginStartPercent="0%"
+        app:layout_marginTopPercent="33%"
+        app:layout_widthPercent="35%" />
+
+    <TextView
+        android:id="@+id/humid_mess"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Just right"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        app:layout_marginStartPercent="60%"
+        app:layout_marginTopPercent="20%"
+        app:layout_heightPercent="6%"
+        app:layout_widthPercent="35%"/>
+
+    <ImageView
+        android:id="@+id/humid_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/right"
+        app:layout_heightPercent="9%"
+        app:layout_marginStartPercent="43%"
+        app:layout_marginTopPercent="18%"
+        app:layout_widthPercent="16%" />
+
+    <TextView
+        android:id="@+id/temp_mess"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Just right"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        app:layout_marginStartPercent="60%"
+        app:layout_marginTopPercent="33%"
+        app:layout_heightPercent="6%"
+        app:layout_widthPercent="35%"/>
+
+    <ImageView
+        android:id="@+id/temp_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/right"
+        app:layout_heightPercent="9%"
+        app:layout_marginStartPercent="43%"
+        app:layout_marginTopPercent="31%"
+        app:layout_widthPercent="16%" />
+
 
 
 </androidx.percentlayout.widget.PercentRelativeLayout>

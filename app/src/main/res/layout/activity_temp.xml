@@ -4,10 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D5A84E"
+    android:background="#05103A"
     tools:context=".TempActivity">
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Temperature"
+        android:textColor="#fff"
+        android:textSize="25dp"
+        app:layout_marginStartPercent="32%"
+        app:layout_marginTopPercent="2%"
+        app:layout_heightPercent="5%"
+        app:layout_widthPercent="36%"/>
+    <ImageButton
+        android:id="@+id/last_page"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/previous"
+        android:scaleType="fitXY"
+        android:background="#05103A"
+        app:layout_marginStartPercent="2%"
+        app:layout_marginTopPercent="2%"
+        app:layout_heightPercent="5%"
+        app:layout_widthPercent="7%"
+        />
+
+    <ImageButton
+        android:id="@+id/temp_graph"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/graph"
+        android:scaleType="fitXY"
+        android:background="#05103A"
+        app:layout_marginStartPercent="42%"
+        app:layout_marginTopPercent="85%"
+        app:layout_heightPercent="10%"
+        app:layout_widthPercent="16%"
+        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="40%"
+        app:layout_marginStartPercent="10%"
+        app:layout_marginTopPercent="15%"
+        app:layout_widthPercent="80%">
+
+        <com.anychart.AnyChartView
+            android:id="@+id/any_chart_view1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Switch
+        android:id="@+id/heater_switch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:switchMinWidth="70dp"
+        android:text="Heater"
+        android:textColor="#fff"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="30dp"
+        android:thumb="@drawable/switch_thumb"
+        android:track="@drawable/custom_switch"
+        app:layout_heightPercent="8%"
+        app:layout_marginStartPercent="10%"
+        app:layout_marginTopPercent="65%"
+        app:layout_widthPercent="80%"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/heater_txt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="#77809E"
+        android:textSize="20dp"
+        android:text="Off"
+        app:layout_heightPercent="8%"
+        app:layout_marginStartPercent="10%"
+        app:layout_marginTopPercent="71%"
+        app:layout_widthPercent="80%"/>
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_heightPercent="40%"
@@ -58,6 +139,6 @@
         android:background="#00BCD4"
         android:text="Too Cold"
         android:gravity="center"
-        />
+        />-->
 
 </androidx.percentlayout.widget.PercentRelativeLayout>

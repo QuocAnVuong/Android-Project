@@ -4,13 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/drawable/custom_button.xml" value="0.1" />
+        <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/drawable/custom_switch.xml" value="0.1" />
         <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/drawable/my_btn_toggle.xml" value="0.1" />
-        <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_humid.xml" value="0.20416666666666666" />
+        <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/drawable/switch_my_track.xml" value="0.1" />
+        <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/drawable/switch_thumb.xml" value="0.1" />
+        <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_humid.xml" value="0.18" />
         <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_humid2.xml" value="0.22" />
+        <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_humid_graph.xml" value="0.20416666666666666" />
         <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_nutri.xml" value="0.13125" />
         <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_temp.xml" value="0.1" />
         <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_temp2.xml" value="0.13125" />
+        <entry key="..\:/Code/thayNhan/Project1/app/src/main/res/layout/activity_temp_graph.xml" value="0.1" />
       </map>
     </option>
   </component>

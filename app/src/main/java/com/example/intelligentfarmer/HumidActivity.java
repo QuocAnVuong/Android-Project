@@ -2,23 +2,20 @@ package com.example.intelligentfarmer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ToggleButton;
+import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.anychart.APIlib;
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.charts.Cartesian;
 import com.anychart.charts.CircularGauge;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.chart.common.dataentry.SingleValueDataSet;
 import com.anychart.enums.Anchor;
 import com.anychart.graphics.vector.text.HAlign;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
@@ -27,8 +24,12 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class HumidActivity extends AppCompatActivity {
 
     MQTTHelper mqttHelper;
-    ToggleButton waterBtn;
-    ToggleButton windBtn;
+    Switch waterBtn;
+    TextView watertxt;
+    Switch windBtn;
+    TextView windtxt;
+    ImageButton lastPage;
+    ImageButton humidGraph;
     int count=6;
 
     @Override
@@ -36,7 +37,7 @@ public class HumidActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_humid);
         //First chart
-        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        /*AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         APIlib.getInstance().setActiveAnyChartView(anyChartView);
 
         Cartesian cartesian = AnyChart.line();
@@ -52,7 +53,25 @@ public class HumidActivity extends AppCompatActivity {
 
         cartesian.data(data);
 
-        cartesian.title("HUMIDITY");
+        cartesian.title("HUMIDITY");*/
+
+        lastPage = findViewById(R.id.last_page);
+
+        lastPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+
+        humidGraph = findViewById(R.id.humid_graph);
+
+        humidGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), HumidGraphActivity.class));
+            }
+        });
 
 
         AnyChartView anyChartView1 = findViewById(R.id.any_chart_view1);
@@ -63,6 +82,7 @@ public class HumidActivity extends AppCompatActivity {
 
 
         double currentValue = 13.8D;
+        circularGauge.background().fill("#05103A");
         circularGauge.data(new SingleValueDataSet(new Double[] {currentValue}));
 
         circularGauge.axis(0).labels().position("outside");
@@ -88,19 +108,10 @@ public class HumidActivity extends AppCompatActivity {
                 .stroke(null);
 
         circularGauge.label(0)
-                .text("<span style=\"font-size: 25\">Humidity</span>")
-                .useHtml(true)
-                .hAlign(HAlign.CENTER);
-        circularGauge.label(0)
-                .anchor(Anchor.CENTER_TOP)
-                .offsetY(100)
-                .padding(15, 20, 0, 0);
-
-        circularGauge.label(1)
                 .text("<span style=\"font-size: 20\">" + currentValue + "</span>")
                 .useHtml(true)
                 .hAlign(HAlign.CENTER);
-        circularGauge.label(1)
+        circularGauge.label(0)
                 .anchor(Anchor.CENTER_TOP)
                 .offsetY(-70)
                 .background("{fill: 'none', stroke: '#c1c1c1', corners: 3, cornerType: 'ROUND'}");
@@ -132,6 +143,11 @@ public class HumidActivity extends AppCompatActivity {
                         "  }");
 
 
+        waterBtn=findViewById(R.id.water_switch);
+        watertxt=findViewById(R.id.water_txt);
+        windBtn=findViewById(R.id.wind_switch);
+        windtxt=findViewById(R.id.wind_txt);
+
         mqttHelper = new MQTTHelper(this, "VuongQuocAn");
         mqttHelper.setCallback(new MqttCallbackExtended() {
             @Override
@@ -147,15 +163,29 @@ public class HumidActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 String Humid="VTrung/feeds/humidity";
+                String Water="VTrung/feeds/water";
+                String Fan="VTrung/feeds/fan";
                 if(topic.compareTo(Humid)==0){
                     APIlib.getInstance().setActiveAnyChartView(anyChartView1);
                     double currentValue = Integer.parseInt(message.toString());
                     circularGauge.data(new SingleValueDataSet(new Double[] {currentValue}));
-                    circularGauge.label(1)
+                    circularGauge.label(0)
                             .text("<span style=\"font-size: 20\">" + currentValue + "</span>");
-                    APIlib.getInstance().setActiveAnyChartView(anyChartView);
-                    data.add(new ValueDataEntry(count,Integer.parseInt(message.toString())));
-                    cartesian.data(data);
+
+                }
+                if(topic.compareTo(Water)==0){
+                    if(message.toString().compareTo("ON")==0){
+                        waterBtn.setChecked(true);
+                        watertxt.setText("On");
+                    }
+                    else{waterBtn.setChecked(false);watertxt.setText("Off");}
+                }
+                if(topic.compareTo(Fan)==0){
+                    if(message.toString().compareTo("ON")==0){
+                        windBtn.setChecked(true);
+                        windtxt.setText("On");
+                    }
+                    else{windBtn.setChecked(false);windtxt.setText("Off");}
                 }
             }
 
@@ -165,34 +195,25 @@ public class HumidActivity extends AppCompatActivity {
             }
         });
 
-        waterBtn=findViewById(R.id.water_togglebtn);
-        waterBtn.setText("Water Off".toString());
-
         waterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(waterBtn.isChecked()){
-                    waterBtn.setText("Water On".toString());
+                    watertxt.setText("On");
                 }
-                else{
-                    waterBtn.setText("Water Off".toString());
-                }
+                else{watertxt.setText("Off");}
             }
         });
-
-        windBtn=findViewById(R.id.wind_togglebtn);
-        windBtn.setText("Fan Off".toString());
 
         windBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(windBtn.isChecked()){
-                    windBtn.setText("Fan On".toString());
+                    windtxt.setText("On");
                 }
-                else{
-                    windBtn.setText("Fan Off".toString());
-                }
+                else{windtxt.setText("Off");}
             }
         });
+
     }
 }
